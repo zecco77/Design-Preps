@@ -1,0 +1,121 @@
+export const getCompanyLogo = (companyName: string) => {
+  if (companyName.includes('.') && !companyName.includes(' / ')) {
+    let domain = companyName;
+    try {
+      if (companyName.startsWith('http')) {
+        domain = new URL(companyName).hostname;
+      }
+    } catch {}
+    
+    domain = domain.replace('www.', '').split('/')[0];
+    return `https://logo.clearbit.com/${domain}`;
+  }
+
+  const domains: Record<string, string> = {
+    "Google / Alphabet": "google.com",
+    "Meta": "meta.com",
+    "Apple": "apple.com",
+    "Amazon": "amazon.com",
+    "Microsoft": "microsoft.com",
+    "Netflix": "netflix.com",
+    "Adobe": "adobe.com",
+    "Salesforce": "salesforce.com",
+    "IBM": "ibm.com",
+    "Oracle": "oracle.com",
+    "Airbnb": "airbnb.com",
+    "Uber": "uber.com",
+    "Lyft": "lyft.com",
+    "Spotify": "spotify.com",
+    "Slack": "slack.com",
+    "Figma": "figma.com",
+    "Notion": "notion.so",
+    "Atlassian": "atlassian.com",
+    "Dropbox": "dropbox.com",
+    "Zoom": "zoom.us",
+    "Shopify": "shopify.com",
+    "Stripe": "stripe.com",
+    "Square / Block": "squareup.com",
+    "PayPal": "paypal.com",
+    "Intuit": "intuit.com",
+    "Robinhood": "robinhood.com",
+    "Coinbase": "coinbase.com",
+    "Chime": "chime.com",
+    "Brex": "brex.com",
+    "Plaid": "plaid.com",
+    "Nubank": "nubank.com.br",
+    "Klarna": "klarna.com",
+    "Revolut": "revolut.com",
+    "N26": "n26.com",
+    "Affirm": "affirm.com",
+    "ServiceNow": "servicenow.com",
+    "Workday": "workday.com",
+    "HubSpot": "hubspot.com",
+    "Zendesk": "zendesk.com",
+    "Intercom": "intercom.com",
+    "Asana": "asana.com",
+    "Monday.com": "monday.com",
+    "Miro": "miro.com",
+    "Airtable": "airtable.com",
+    "Coda": "coda.io",
+    "Webflow": "webflow.com",
+    "Canva": "canva.com",
+    "InVision": "invisionapp.com",
+    "Abstract": "abstract.com",
+    "Maze": "maze.co",
+    "TikTok / ByteDance": "tiktok.com",
+    "Pinterest": "pinterest.com",
+    "Snapchat": "snapchat.com",
+    "X / Twitter": "x.com",
+    "Reddit": "reddit.com",
+    "LinkedIn": "linkedin.com",
+    "YouTube": "youtube.com",
+    "Twitch": "twitch.tv",
+    "Discord": "discord.com",
+    "Bumble / Match Group": "bumble.com",
+    "Epic Systems": "epic.com",
+    "Teladoc Health": "teladochealth.com",
+    "Hims & Hers": "forhims.com",
+    "Headspace": "headspace.com",
+    "Calm": "calm.com",
+    "Duolingo": "duolingo.com",
+    "Coursera": "coursera.org",
+    "Khan Academy": "khanacademy.org",
+    "Chegg": "chegg.com",
+    "Noom": "noom.com",
+    "OpenAI": "openai.com",
+    "Anthropic": "anthropic.com",
+    "Midjourney": "midjourney.com",
+    "Stability AI": "stability.ai",
+    "Runway ML": "runwayml.com",
+    "Jasper AI": "jasper.ai",
+    "Character.AI": "character.ai",
+    "Perplexity AI": "perplexity.ai",
+    "Cohere": "cohere.com",
+    "Hugging Face": "huggingface.co",
+    "Tesla": "tesla.com",
+    "Rivian": "rivian.com",
+    "Samsung Design": "samsung.com",
+    "Sony Design": "sony.com",
+    "Waymo": "waymo.com",
+    "Cruise": "getcruise.com",
+    "Ford": "ford.com",
+    "BMW DesignWorks": "bmwgroupdesignworks.com",
+    "Bosch": "bosch.com",
+    "IDEO": "ideo.com",
+    "Frog Design": "frogdesign.com",
+    "Huge Inc.": "hugeinc.com",
+    "R/GA": "rga.com",
+    "Accenture Interactive / Fjord": "accenture.com",
+    "McKinsey Design": "mckinsey.com",
+    "Deloitte Digital": "deloittedigital.com",
+    "BCG X": "bcg.com",
+    "Publicis Sapient": "publicissapient.com",
+    "ThoughtWorks": "thoughtworks.com"
+  };
+
+  const domain = domains[companyName];
+  if (domain) {
+    return `https://logo.clearbit.com/${domain}`;
+  }
+  return null;
+}

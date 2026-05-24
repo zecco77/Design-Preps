@@ -1,0 +1,8 @@
+{
+  "name": "DesignPrep.io",
+  "description": "UX/UI Interview Prep Portal for top tech companies",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

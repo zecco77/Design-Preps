@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "number", "description": "Timestamp" }
+      },
+      "required": ["email", "createdAt"]
+    },
+    "PrepDeck": {
+      "title": "Prep Deck",
+      "description": "Saved interview prep deck.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "company": { "type": "string" },
+        "role": { "type": "string" },
+        "level": { "type": "string" },
+        "round": { "type": "string" },
+        "industry": { "type": "string" },
+        "categories": { "type": "string" },
+        "createdAt": { "type": "number", "description": "Timestamp" },
+        "updatedAt": { "type": "number", "description": "Timestamp" }
+      },
+      "required": ["userId", "company", "role", "level", "round", "categories", "createdAt", "updatedAt"]
+    },
+    "MockInterview": {
+      "title": "Mock Interview",
+      "description": "AI mock interview feedback and results.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "deckId": { "type": "string" },
+        "feedback": { "type": "string" },
+        "score": { "type": "number" },
+        "createdAt": { "type": "number", "description": "Timestamp" }
+      },
+      "required": ["userId", "deckId", "feedback", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles."
+    },
+    "prepDecks/{deckId}": {
+      "schema": "PrepDeck",
+      "description": "Stores saved prep decks."
+    },
+    "mockInterviews/{interviewId}": {
+      "schema": "MockInterview",
+      "description": "Stores mock interview results."
+    }
+  }
+}
